@@ -69,7 +69,7 @@ def removeNodes(node, repeatSet, prev):
         prev.next = node.next
         removeNodes(node.next, repeatSet, prev)
     #end of if
-#end of removeNodes
+#end of removeNodess
 
 testOne = copy.deepcopy(llOne)
 print("")
