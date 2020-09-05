@@ -209,3 +209,48 @@ def palindrome(llist):
 llTwo.printList()
 print("")
 print(palindrome(llTwo))
+
+#Determining the intersection of two linkedLists
+def determiningIntersection(llOne, llTwo):
+    finishOne = llOne.head
+    finishTwo = llTwo.head
+    lengthOne = 0 #find the length of the lists
+    lengthtWO = 0
+
+    while(nodeOne != None):
+        lengthOne += 1
+        finishOne = finishOne.next
+    #end of while
+
+    while(nodeTwo != None):
+        lengthTwo += 1
+        finishTwo = finishTwo.next
+    #end of while
+
+    if(finishOne != finishTwo):
+        return False
+    #end of if
+
+    startOne = llOne.head
+    startTwo = llTwo.head
+
+    if lengthOne > lengthTwo:
+        difference = lengthOne-lengthTwo
+        for(counter in range(difference)):
+            startOne = startOne.next
+        #end of if
+    else: 
+        difference = lengthTwo-lengthOne
+        for(counter in range(difference)):
+            startTwo = startTwo.next
+        #end of if
+
+    while(startTwo != None):
+        if(startTwo == startOne):
+            return startTwo
+        else:
+            startOne = startOne.next
+            startTwo = startTwo.next
+        #end of if
+    #end of while
+    return False
