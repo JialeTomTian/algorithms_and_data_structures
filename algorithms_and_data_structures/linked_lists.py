@@ -210,7 +210,8 @@ llTwo.printList()
 print("")
 print(palindrome(llTwo))
 
-#Determining the intersection of two linkedLists
+# Determining the intersection of two linkedLists
+# Strategy 
 def determiningIntersection(llOne, llTwo):
     finishOne = llOne.head
     finishTwo = llTwo.head
@@ -254,3 +255,41 @@ def determiningIntersection(llOne, llTwo):
         #end of if
     #end of while
     return False
+
+# Determine if a linked list has a loop
+# Efficiency O(n) time complexity, also since only two pointers are used, the space complexity is only O(1)
+def loopDetection(llist):
+    slowPointer = currentNode.head
+    fastPointer = currentNode.head
+    while(fastPointer != None and fastPointer.next != None):
+        fastPointer = fastPointer.next.next
+        slowPointer = slowPointer.next
+        if(fastPointer == slowPointer):
+            return True
+        #end of if
+    #end of while
+    return False
+#end of loopDetection
+
+# Find head of loop
+# Time complexity: O(n)
+def loopHead(llist):
+    slowPointer = currentNode.head
+    fastPointer = currentNode.head
+    while(fastPointer != None and fastPointer.next != None):
+        fastPointer = fastPointer.next.next
+        slowPointer = slowPointer.next
+        if(fastPointer == slowPointer):
+            break
+        #end of if
+    #end of while
+    if(fastPointer == None or fastPointer.next == None):
+        return None
+    #end of if
+    slowPointer = currentNode.head
+    while(fastPointer != slowPointer):
+        slowPointer = slowPointer.next
+        fastPointer = fastPointer.next
+    #end of while
+    return fastPointer
+#end of loopHead
