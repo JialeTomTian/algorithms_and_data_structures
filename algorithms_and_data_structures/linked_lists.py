@@ -237,12 +237,12 @@ def determiningIntersection(llOne, llTwo):
 
     if lengthOne > lengthTwo:
         difference = lengthOne-lengthTwo
-        for(counter in range(difference)):
+        for counter in range(difference):
             startOne = startOne.next
         #end of if
     else: 
         difference = lengthTwo-lengthOne
-        for(counter in range(difference)):
+        for counter in range(difference):
             startTwo = startTwo.next
         #end of if
 
@@ -293,3 +293,22 @@ def loopHead(llist):
     #end of while
     return fastPointer
 #end of loopHead
+
+def reverseList(llist):
+    currentNode = llist.head
+    nextNode = None
+    prevNode = None
+    while(currentNode != None):
+        nextNode = currentNode.next
+        currentNode.next = prevNode
+        prevNode = currentNode
+        currentNode = nextNode
+    #end of while
+    llist.head = prevNode
+#end of reverseList
+
+testTwo = copy.deepcopy(llTwo)
+testTwo.printList()
+print("")
+reverseList(testTwo)
+testTwo.printList()
