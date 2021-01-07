@@ -112,13 +112,26 @@ def removeDuplicatesBuffer(linkedList):
 # removeDuplicatesBuffer(testOne)
 # testOne.printList()
 
-# testTwo = copy.deepcopy(llTwo)
+testTwo = copy.deepcopy(llTwo)
 # print("")
 # removeDuplicatesBuffer(testTwo)
 # testTwo.printList()
 
 # Takes O(n) time and O(n) space due to recursive calls
 
+def nthNodeRecurseWrapper(index, linkedList):
+    return nthNodeRecurse(index, linkedList.head, 0)
+#end of nthNodeRecurse
+
+def nthNodeRecurse(index, node, current):
+    if((node.next == None or node == None) and current < index-1):
+        return "out of bounds"
+    elif (current == index):
+        return node.value
+    else:
+        return nthNodeRecurse(index, node.next, current+1)
+    #end of if
+#end of nthNodeRecurse
 
 def nthNode(index, linkedList):
     currentIndex = 0
@@ -136,6 +149,9 @@ def nthNode(index, linkedList):
 
 # print("")
 # print(nthNode(1, testTwo))
+# print(nthNodeRecurseWrapper(1, testTwo))
+# print(nthNode(3, testTwo))
+# print(nthNodeRecurseWrapper(3, testTwo))
 
 # given two linked lists get the sum
 # bonus (from leetcode medium): return result as a linkedList
@@ -175,6 +191,13 @@ def twoSum(llOne, llTwo):
     return outputList
 #end of twoSum
 
+def twoSumRecurse(llOne, llTwo):
+    
+#end of twoSumRecurse
+
+def twoSumHelp(node, currentSum=0, currentIndex=0):
+#end of twoSumHelp
+
 # Determine if a linkedlist's items are a palindrome
 # Iterative Approach with a Stack and the runner technique 
 def palindrome(llist):
@@ -206,9 +229,9 @@ def palindrome(llist):
 # print("")
 # llOne.printList()
 # print("")
-llTwo.printList()
-print("")
-print(palindrome(llTwo))
+# llTwo.printList()
+# print("")
+# print(palindrome(llTwo))
 
 # Determining the intersection of two linkedLists
 # Strategy 
@@ -307,8 +330,8 @@ def reverseList(llist):
     llist.head = prevNode
 #end of reverseList
 
-testTwo = copy.deepcopy(llTwo)
-testTwo.printList()
-print("")
-reverseList(testTwo)
-testTwo.printList()
+# testTwo = copy.deepcopy(llTwo)
+# testTwo.printList()
+# print("")
+# reverseList(testTwo)
+# testTwo.printList()
