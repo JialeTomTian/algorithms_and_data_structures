@@ -192,10 +192,17 @@ def twoSum(llOne, llTwo):
 #end of twoSum
 
 def twoSumRecurse(llOne, llTwo):
-    
+    valOne = twoSumHelp(llOne.head)
+    valTwo = twoSumHelp(llTwo.head)
+    print(valOne+valTwo)
 #end of twoSumRecurse
 
 def twoSumHelp(node, currentSum=0, currentIndex=0):
+    if(node == None):
+        return currentSum
+    else:
+        tempVal = node.value*(10**currentIndex)
+        return twoSumHelp(node.next, currentSum+tempVal, currentIndex+1)
 #end of twoSumHelp
 
 # Determine if a linkedlist's items are a palindrome
